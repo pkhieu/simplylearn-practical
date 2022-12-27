@@ -1,8 +1,7 @@
 # Build a Docker Jenkins Pipeline to Implement CI/CD Workflow.
 ## DESCRIPTION:
 ### Demonstrate the continuous integration and delivery by building a Docker Jenkins Pipeline.
-- Problem Statement Scenario: 
-  - You are a DevOps consultant in AchiStar Technologies. The company decided to implement DevOps to develop and deliver their products. Since it is an Agile organization, it follows Scrum methodology to develop the projects incrementally. You are working with multiple DevOps Engineers to build a Docker Jenkins Pipeline. During the sprint planning, you agreed to take the lead on this project and plan on the requirements, system configurations, and track the efficiency. The tasks you are responsible for: 
+- Problem Statement Scenario: You are a DevOps consultant in AchiStar Technologies. The company decided to implement DevOps to develop and deliver their products. Since it is an Agile organization, it follows Scrum methodology to develop the projects incrementally. You are working with multiple DevOps Engineers to build a Docker Jenkins Pipeline. During the sprint planning, you agreed to take the lead on this project and plan on the requirements, system configurations, and track the efficiency. The tasks you are responsible for: 
   1. Availability of the application and its versions in the GitHub
   2.  Track their versions every time a code is committed to the repository
   3. Create a Docker Jenkins Pipeline that will create a Docker image from the Dockerfile and host it on Docker Hub
