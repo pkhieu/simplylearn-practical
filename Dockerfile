@@ -1,4 +1,9 @@
-FROM busybox
-RUN echo "hello world"
-CMD java -v
-CMD python -v
+FROM openjdk:11-jdk-slim
+
+WORKDIR /app
+
+COPY HelloWorld.java /app
+
+RUN javac HelloWorld.java
+
+CMD ["java", "HelloWorld"]
