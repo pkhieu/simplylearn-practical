@@ -1,5 +1,5 @@
 pipeline{
-    agent ssh-slave-docker
+    agent any
     options{
         buildDiscarder(logRotator(numToKeepStr: '5', daysToKeepStr: '5'))
         timestamps()
