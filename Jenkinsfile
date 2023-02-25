@@ -1,13 +1,13 @@
 pipeline{
-    agent any
+    agent ssh-slave-docker
     options{
         buildDiscarder(logRotator(numToKeepStr: '5', daysToKeepStr: '5'))
         timestamps()
     }
     environment{
         
-        registry = "pkhieu/simplylearn-practical"
-        registryCredential = 'dockerhub-w01f'        
+        registry = "w01f/simplylearn-practical"
+        registryCredential = 'dockerhub-w01f'      
     }
     
     stages{
