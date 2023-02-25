@@ -2,7 +2,7 @@ FROM openjdk:11-jdk-slim
 
 WORKDIR /app
 
-COPY HelloWorld.java /app
+COPY helloworld.java /app
 
 RUN javac helloworld.java
 
