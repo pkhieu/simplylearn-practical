@@ -1,4 +1,10 @@
- environment {
+pipeline{
+    agent ssh-slave-docker
+    options{
+        buildDiscarder(logRotator(numToKeepStr: '5', daysToKeepStr: '5'))
+        timestamps()
+    }
+	environment {
         registry = "w01f/simplylearn-practical"
         registryCredential = 'dockerhub-w01f'
     }
@@ -23,3 +29,4 @@
             }
         }
     }
+}
