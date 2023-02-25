@@ -2,8 +2,8 @@ FROM openjdk:11-jdk-slim
 
 WORKDIR /app
 
-COPY helloworld.java /app
+COPY HelloWorld.java /app
 
-RUN javac helloworld.java
+RUN javac HelloWorld.java
 
 CMD ["java", "HelloWorld"]
