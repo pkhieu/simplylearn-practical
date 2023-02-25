@@ -1,31 +1,25 @@
-pipeline{
-    agent ssh-slave-docker
-    options{
-        buildDiscarder(logRotator(numToKeepStr: '5', daysToKeepStr: '5'))
-        timestamps()
-    }
-    environment{
-        
+ environment {
         registry = "w01f/simplylearn-practical"
-        registryCredential = 'dockerhub-w01f'      
+        registryCredential = 'dockerhub-w01f'
     }
     
-    stages{
-       stage('Building image') {
-      steps{
-        script {
-          dockerImage = docker.build registry + ":$BUILD_NUMBER"
+    stages {
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    sh "docker build -t ${registry}:${BUILD_NUMBER} ."
+                }
+            }
         }
-      }
-    }
-       stage('Deploy Image') {
-      steps{
-         script {
-            docker.withRegistry( '', registryCredential ) {
-            dockerImage.push()
-          }
+        
+        stage('Push Docker Image') {
+            steps {
+                script {
+                    withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: registryCredential, usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD']]) {
+                        sh "docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}"
+                        sh "docker push ${registry}:${BUILD_NUMBER}"
+                    }
+                }
+            }
         }
-      }
     }
-  }
-}
